@@ -1,0 +1,14 @@
+#!/bin/bash
+#!C:/Program\ Files/Git/bin/bash.exe
+
+PROTECT_BRANCHES=(main master develop)
+
+CURRENT_BRANCH_NAME=`git symbolic-ref HEAD | sed -e 's%^refs/heads/%%'`
+
+for PROTECT_BRANCH in ${PROTECT_BRANCHES[@]}
+do
+    if [[ $CURRENT_BRANCH_NAME == ${PROTECT_BRANCH} ]]; then
+        echo "error: ${PROTECT_BRANCH} にcommitしないで!!!"
+        exit 1
+    fi
+done
