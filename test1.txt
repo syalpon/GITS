@@ -1,0 +1,7 @@
+#define AAA 000
+
+#if 1
+
+test
+
+#endif
